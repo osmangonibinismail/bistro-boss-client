@@ -1,15 +1,15 @@
 import Swal from "sweetalert2";
-import UseAuth from "../../Hooks/UseAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import UseAxiousSecure from "../../Hooks/UseAxiousSecure";
 import UseCart from "../../Hooks/UseCart";
+import useAuth from "../../Hooks/useAuth";
 
 
 
 
 const FoodCard = ({ item }) => {
     const { name, image, price, recipe, _id } = item;
-    const { user } = UseAuth()
+    const { user } = useAuth()
     const navigate = useNavigate();
     const location = useLocation();
     const axiosSecure = UseAxiousSecure();

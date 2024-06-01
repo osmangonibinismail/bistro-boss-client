@@ -1,9 +1,10 @@
-import { useContext, useEffect,  useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin';
 
 
 const Login = () => {
@@ -33,21 +34,21 @@ const Login = () => {
                 Swal.fire({
                     title: "User Log in successful.",
                     showClass: {
-                      popup: `
+                        popup: `
                         animate__animated
                         animate__fadeInUp
                         animate__faster
                       `
                     },
                     hideClass: {
-                      popup: `
+                        popup: `
                         animate__animated
                         animate__fadeOutDown
                         animate__faster
                       `
                     }
-                  });
-                  navigate(from, {replace: true});
+                });
+                navigate(from, { replace: true });
             })
     }
 
@@ -99,7 +100,8 @@ const Login = () => {
                                 <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
-                        <div className='text-center mt-2 mb-5'>
+                        <SocialLogin></SocialLogin>
+                        <div className='text-center mt-2 mb-5 px-6'>
                             <p>New here? create an account <Link to="/signUp"><p className='font-semibold text-orange-600'>Sign Up</p></Link></p>
                         </div>
                     </div>
